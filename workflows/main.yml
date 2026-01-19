@@ -1,20 +1,10 @@
 name: Node.js CI
 on: [push]
-
 jobs:
-  build-and-run:
+  run-javascript:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+      - name: Execute App
+        run: node app.js
 
-      - name: Set up Node.js
-        uses: [actions/setup-node@v4](https://github.com)
-        with:
-          node-version: '20'
-
-      - name: Install dependencies
-        run: npm install # Only works if you have a package.json
-
-      - name: Run Application
-        run: node app.js # Ensure your file is named app.js
